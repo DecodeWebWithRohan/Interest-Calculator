@@ -10,6 +10,58 @@
 <body>
 	<div class="container">
 		<h1>Interest Calculator</h1>
+
+		<div class="form-container">
+			<div class="input-container" id="type-of-interest-container">
+				<label for="typeOfInterest">Type of Interest</label>
+				<select id="type-of-interest-select" name="typeOfInterest">
+					<option value="CompoundInterest">Compound Interest</option>
+					<option value="SimpleInterest">Simple Interest</option>
+				</select>
+			</div>
+
+			<div class="input-container" id="principal-amount-container">
+				<label for="principalAmount">Principal Amount</label>
+				<input type="number" id="principal-amount-input" name="principalAmount" min="0">
+			</div>
+
+			<div class="input-container" id="rate-of-interest-container">
+				<label for="rateOfInterest">Rate of Interest (in %)</label>
+				<input type="number" id="rate-of-interest-input" name="rateOfInterest" min="0">
+			</div>
+
+			<div class="input-container" id="time-container">
+				<label for="time">Time (in years)</label>
+				<input type="number" id="time-input" name="time" min="0">
+			</div>
+
+			<div class="input-container" id="number-of-times-container">
+				<label for="numberOfTimes">Number of Times (per annum)</label>
+				<input type="number" id="number-of-times-input" name="numberOfTimes" min="1" step="1">
+			</div>
+
+			<div class="actions">
+				<button id="calculate-button">Calculate</button>
+				<button id="reset-button">Reset</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<h1>Result</h1>
+
+		<div class="form-container">
+
+			<div class="input-container" id="total-amount-container">
+				<label for="totalAmount">Total Amount</label>
+				<input type="number" id="total-amount-output" name="totalAmount" readonly>
+			</div>
+
+			<div class="input-container" id="interest-accumulated-container">
+				<label for="interestAccumulated">Interest Accumulated</label>
+				<input type="number" id="interest-accumulated-input" name="interestAccumulated" readonly>
+			</div>
+		</div>
 	</div>
 
 	<script src="./scripts/index.js" type="module"></script>
