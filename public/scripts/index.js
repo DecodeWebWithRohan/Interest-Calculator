@@ -1,4 +1,5 @@
-import { TYPES_OF_INTEREST } from "./service/index.js";
+import { calculateInterest, TYPES_OF_INTEREST } from "./service/index.js";
+import { isValidNumber } from "./utility/index.js";
 
 function main() {
 	const typeOfInterestSelect = document.getElementById('type-of-interest-select');
@@ -21,8 +22,8 @@ function main() {
 		totalAmount,
 		interestAccumulated,
 	}) {
-		totalAmountOutput.value = totalAmount?.toFixed(2);
-		interestAccumulatedOutput.value = interestAccumulated?.toFixed(2);
+		totalAmountOutput.value = isValidNumber(totalAmount) ? totalAmount?.toFixed(2) : '';
+		interestAccumulatedOutput.value = isValidNumber(interestAccumulated) ? interestAccumulated?.toFixed(2) : '';
 	}
 
 	function calculateClickEvent() {
@@ -32,14 +33,13 @@ function main() {
 		const time = Number(timeInput?.value);
 		const numberOfTimes = Number(numberOfTimesInput?.value);
 
-		// TODO
-		// setOutputData(calculateInterest({
-		// 	typeOfInterest,
-		// 	principalAmount,
-		// 	rateOfInterest,
-		// 	time,
-		// 	numberOfTimes,
-		// }));
+		setOutputData(calculateInterest({
+			typeOfInterest,
+			principalAmount,
+			rateOfInterest,
+			time,
+			numberOfTimes,
+		}));
 	}
 
 	function resetClickEvent() {
